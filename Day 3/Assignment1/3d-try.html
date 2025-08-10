@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Animated project by Shahajahan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #0f0f0f;
+        color: #fff;
+        min-height: 100vh;
+        perspective: 1000px;
+        overflow-x: hidden;
+      }
+
+      .parallax-wrapper {
+        transform-style: preserve-3d;
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      header {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1352&q=80");
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        transform: translateZ(0.1px);
+      }
+
+      .profile-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 15px;
+        transform: rotateY(20deg) rotateX(-10deg);
+        transition: transform 0.5s;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      }
+
+      .profile-card:hover {
+        transform: rotateY(0) rotateX(0);
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        margin: 1rem auto;
+        background: url("https://itsedway.com/wp-content/uploads/2024/10/Shahajahan.jpg")
+          center/cover;
+        transform: translateZ(30px);
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 4rem 2rem;
+      }
+
+      .blog-post {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border-radius: 15px;
+        transform-style: preserve-3d;
+        transition: all 0.5s;
+        position: relative;
+      }
+
+      .blog-post:hover {
+        transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-post img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 1rem 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      h2 {
+        color: #00ff88;
+        margin: 1rem 0;
+      }
+
+      a {
+        color: #00ff88;
+        text-decoration: none;
+        position: relative;
+      }
+
+      a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #00ff88;
+        transition: width 0.3s;
+      }
+
+      a:hover::after {
+        width: 100%;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateZ(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateZ(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .profile-card {
+          transform: none;
+        }
+
+        header {
+          height: auto;
+          padding: 4rem 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parallax-wrapper">
+      <header>
+        <div class="profile-card">
+          <div class="profile-img"></div>
+          <h1>Shahajahan</h1>
+          <p>Web Developer & Blogger</p>
+        </div>
+      </header>
+
+      <div class="blog-grid">
+        <article class="blog-post">
+          <h2>3D Animation Basics</h2>
+          <img
+            src="https://img.freepik.com/free-photo/3d-colorful-abstract-background-generative-ai_91128-2284.jpg?t=st=1738779494~exp=1738783094~hmac=3c1041a6b2de407b5c0b068c1503a195ffb403fa47e597257259ece489c97f84&w=2000"
+            alt="Tech"
+          />
+          <p>Explore the fundamentals of 3D transformations in CSS...</p>
+          <ul>
+            <li>Transform-style</li>
+            <li>Perspective</li>
+            <li>Rotation</li>
+          </ul>
+        </article>
+
+        <article class="blog-post">
+          <h2>Web Design Trends</h2>
+          <img
+            src="https://img.freepik.com/free-photo/web-design-concepts-with-blurred-background_1134-82.jpg?t=st=1738779535~exp=1738783135~hmac=469c0be1a2bb287024a6010645e8feb6bd2aaf8cc1cc8921ee6b6e92b806fe75&w=2000"
+            alt="Design"
+          />
+          <p>Latest trends in modern web development...</p>
+          <ol>
+            <li>Glassmorphism</li>
+            <li>3D Elements</li>
+            <li>Minimal Design</li>
+          </ol>
+        </article>
+      </div>
+
+      <footer
+        style="
+          text-align: center;
+          padding: 2rem;
+          background: rgba(0, 0, 0, 0.5);
+        "
+      >
+        <p>
+          © 2025
+          <a href="https://itsedway.com">itsedway. All Rights Reserved. </a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
